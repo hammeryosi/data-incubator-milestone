@@ -2,4 +2,4 @@ scipy
 numpy
 pandas
 bokeh
-quandl
+quandl=3.0.1
