@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Milestone Project - Yosi Hammer</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type=text/javascript>
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        </script>
+        <link
+            href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.css"
+            rel="stylesheet" type="text/css">
+        <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.js"></script>
+        <script type="text/javascript" src="../static/scripts/milestone.js"></script>
+	</head>
+	<body>
+		<div class="container text-center">
+  			<h2>Milestone Project<br><small>by Yosi Hammer</small></h2> 
+  			<form  class="form-horizontal" style="margin-bottom: 20px;"
+                action="/get_stock_data" id="milestone-form">
+  				<div class="form-group">
+  					<label for="stock" class="control-label col-sm-2">Stock ticker:</label>
+  					<div class="col-sm-10">
+  						<input type="text" class="form-control" id="stock-input" name="stock">
+  					</div>
+  				</div>
+  				<div class="form-group">
+  					<label for="start_date" class="control-label col-sm-2">From date:</label>
+  					<div class="col-sm-10">
+  						<input type="date" class="form-control" id="date1" name="date1">
+  					</div>
+  				</div>
+  				<div class="form-group">
+  					<label for="end_date" class="control-label col-sm-2">To date:</label>
+  					<div class="col-sm-10">
+  						<input type="date" class="form-control" id="date2" name="date2">
+  					</div>
+  				</div>
+  				<br>
+  				<div class="checkbox checkbox-inline">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="control-label">
+                                <input type="checkbox" id="open-checkbox"
+                                       name="check" value="open"> open
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="control-label">
+                                <input type="checkbox" id="close-checkbox"
+                                       name="check" value="close"> close
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="control-label">
+                                <input type="checkbox" id="high-checkbox"
+                                       name="check" value="high"> high
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="control-label">
+                                <input type="checkbox" id="low-checkbox"
+                                       name="check" value="low"> low
+                            </label>
+                        </div>
+                    </div>
+  				</div>
+                <br>
+                <button type="submit" class="btn btn-success"
+                style="margin-top: 15px;">Plot!</button>
+  			</form>
+  			<div class="panel panel-default" id="plot-panel" style="margin-top: 20px;">
+  			</div>
+		</div>
+	</body>
+</html>
