@@ -32,11 +32,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+          <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/requirements.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state relative-caret-position="136">
+                  <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -52,11 +52,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="conda-requirements.txt" pinned="false" current-in-tab="true">
+          <file leaf-file-name="conda-requirements.txt" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/conda-requirements.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+                <state relative-caret-position="68">
+                  <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -123,6 +123,7 @@
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/stocks.py" />
         <option value="$PROJECT_DIR$/conda-requirements.txt" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -612,14 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -630,8 +623,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conda-requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
           <folding />
         </state>
       </provider>
