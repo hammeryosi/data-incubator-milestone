@@ -1,9 +1,10 @@
-var data;
+var data,
+    plotWidth;
 
 
 $(document).ready(function() {
-	var plt = $('#plot-panel'),
-	    plotWidth = plt.width();
+	var plt = $('#plot-panel');
+    plotWidth = plt.width();
 	plt.hide();
 	setDefTimes();
 
@@ -21,14 +22,16 @@ $(document).ready(function() {
             }
         }
 
+        plt.show();
+        plotWidth = plt.width();
+
         $.post($SCRIPT_ROOT + '/get_stock_data',
             {'stock': stock, 'date1': date1, 'date2': date2,
             'fields': fields.join(','), 'plot-width': plotWidth},
             function (res) {
                 data = res.result;
-                $('#plot-panel').empty().append(data.div)
-                $('#plot-panel').append(data.script)
-                $('#plot-panel').show()
+                plt.empty().append(data.div)
+                plt.append(data.script)
             });
     });
 });
