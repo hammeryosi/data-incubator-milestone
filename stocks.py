@@ -22,8 +22,23 @@ def createPlotFromWeb(stock, startDate, endDate, fields, width):
     x = data['date']
     cols = ['black', 'orange', 'green', 'blue']
     p = figure(title=stock, x_axis_type="datetime", plot_width=width)
+    p.toolbar.active_drag = None
     for f in fields:
         p.line(x, y=data[f], legend=f, color=cols[fields.index(f)])
         p.circle(x, y=data[f], legend=f, color=cols[fields.index(f)])
     script, div = components(p)
-    return (data.to_json(), script, div)
+    return data.to_json(), script, div
+
+def createPlotFromData(dat, width):
+    data = pd.read_json(dat).sort_values('date')
+    fields = list(set(data.columns).difference({'ticker', 'date'}))
+    stock = data['ticker'][0]
+    x = data['date']
+    cols = ['black', 'orange', 'green', 'blue']
+    p = figure(title=stock, x_axis_type="datetime", plot_width=width)
+    p.toolbar.active_drag = None
+    for f in fields:
+        p.line(x, y=data[f], legend=f, color=cols[fields.index(f)])
+        p.circle(x, y=data[f], legend=f, color=cols[fields.index(f)])
+    script, div = components(p)
+    return script, div

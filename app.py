@@ -24,6 +24,13 @@ def getStockData():
     return jsonify(result={'data': data,
                            'script': script,
                            'div': div})
+@app.route('/redraw_graph', methods=['POST'])
+def redrawPlot():
+    data = request.form['data']
+    width = int(float(request.form['plot-width']))
+    script, div = stocks.createPlotFromData(data, width)
+    return jsonify(result={'script': script,
+                           'div': div})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

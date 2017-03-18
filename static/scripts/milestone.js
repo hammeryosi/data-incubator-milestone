@@ -1,4 +1,5 @@
-var data,
+var data = null,
+    gotData = false,
     plotWidth;
 
 
@@ -29,9 +30,11 @@ $(document).ready(function() {
             {'stock': stock, 'date1': date1, 'date2': date2,
             'fields': fields.join(','), 'plot-width': plotWidth},
             function (res) {
-                data = res.result;
-                plt.empty().append(data.div)
-                plt.append(data.script)
+                var result = res.result;
+                data = result.data;
+                gotData = true;
+                plt.empty().append(result.div)
+                plt.append(result.script)
             });
     });
 });
@@ -53,5 +56,19 @@ var setDefTimes = function() {
     	(day<10 ? '0' : '') + day;
 	$('#date1').val(output);
 };
+
+$(window).resize(function() {
+    if (gotData) {
+        var plt = $('#plot-panel');
+        var width = plt.width();
+        $.post($SCRIPT_ROOT + '/redraw_graph',
+            {'data': data, 'plot-width': width},
+        function (res) {
+            var result = res.result;
+            plt.empty().append(result.div);
+            plt.append(result.script);
+        })
+    }
+});
 
 
