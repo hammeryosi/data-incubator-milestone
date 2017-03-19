@@ -1,6 +1,7 @@
 var data = null,
     gotData = false,
-    plotWidth;
+    plotWidth,
+    tickerList;
 
 
 $(document).ready(function() {
@@ -8,6 +9,27 @@ $(document).ready(function() {
     plotWidth = plt.width();
 	plt.hide();
 	setDefTimes();
+
+	$.getJSON($SCRIPT_ROOT + 'ticker_list', {}, function (data) {
+        tickerList = data.result;
+
+        var tickers = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.whitespace,
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local:  tickerList
+        });
+
+        $('.typeahead').typeahead({
+            hint: true,
+            highlight: true, /* Enable substring highlighting */
+            minLength: 1 /* Specify minimum characters required for showing suggestions */
+            },
+            {
+            name: 'tickers',
+            source: tickers
+            });
+    });
+
 
 	$('#milestone-form').submit(function (event) {
         event.preventDefault();

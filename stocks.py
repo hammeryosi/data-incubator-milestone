@@ -2,6 +2,7 @@ import quandl
 from bokeh.plotting import figure
 from bokeh.embed import components
 import pandas as pd
+from datetime import date, timedelta
 
 quandl.ApiConfig.api_key = '115daC9Bm9f12ogqipdx'
 
@@ -42,3 +43,8 @@ def createPlotFromData(dat, width):
         p.circle(x, y=data[f], legend=f, color=cols[fields.index(f)])
     script, div = components(p)
     return script, div
+
+def getCurrentTickers():
+    tickerDate = (date.today() - timedelta(2)).strftime('%Y-%m-%d')
+    data = quandl.get_table("WIKI/PRICES", qopts={'columns': ['ticker', 'date']}, date=tickerDate)
+    return list(data['ticker'])
