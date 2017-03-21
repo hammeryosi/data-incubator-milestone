@@ -45,6 +45,7 @@ def createPlotFromData(dat, width):
     return script, div
 
 def getCurrentTickers():
-    tickerDate = (date.today() - timedelta(2)).strftime('%Y-%m-%d')
+    today = date.today()
+    tickerDate = (today + timedelta(days=-today.weekday())).strftime('%Y-%m-%d')
     data = quandl.get_table("WIKI/PRICES", qopts={'columns': ['ticker', 'date']}, date=tickerDate)
     return list(data['ticker'])
